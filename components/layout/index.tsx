@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "./header";
+import Footer from "./footer";
 
 type Props = {
   children?: React.ReactNode;
@@ -17,6 +18,7 @@ export default ({ children }: Props) => {
       <main>
         {children}
       </main>
+      <Footer />
     </>
   );
 };
