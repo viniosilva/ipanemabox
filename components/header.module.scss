@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "Monte Carlo";
+    src: url(../public/fonts/MonteCarlo/MonteCarlo-Regular.ttf);
+  }
+
+header.header {
+  .menu {
+    width: 24px;
+    height: 24px;
+    color: #333333;
+    margin-top: 22px;
+    margin-left: 22px;
+    position: absolute;
+  }
+
+  h1 {
+    text-align: center;
+    color: #7acf3b;
+    font-family: "Monte Carlo";
+    font-weight: normal;
+    font-size: 40px;
+  }
+}

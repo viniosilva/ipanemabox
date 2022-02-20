@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Header from "../components/header"
 
 export default () => {
   return (
@@ -9,6 +10,7 @@ export default () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header />
       <main>
         <p>Hello world! (:</p>
       </main>
