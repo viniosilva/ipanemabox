@@ -1,0 +1,14 @@
+@use "../styles/base";
+
+header.header {
+  width: 100vw;
+  height: 136px;
+  background: base.$primaryColor;
+  padding: base.$margin;
+  margin-bottom: -46px;
+
+  h2 {
+    color: #FFFFFF;
+    font-weight: normal;
+  }
+}

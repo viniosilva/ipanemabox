@@ -2,9 +2,9 @@ import Head from "next/head";
 import Header from "./header";
 import Footer from "./footer";
 
-type Props = {
+interface Props {
   children?: React.ReactNode;
-};
+}
 
 export default ({ children }: Props) => {
   return (
@@ -15,9 +15,7 @@ export default ({ children }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
       <Footer />
     </>
   );
