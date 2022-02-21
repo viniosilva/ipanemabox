@@ -3,8 +3,8 @@ import Header from "../components/header";
 
 export default () => {
   return (
-    <Layout page="services">
-      <Header title="Serviços"></Header>
+    <Layout page="budgets">
+      <Header title="Orçamentos"></Header>
     </Layout>
   );
 };

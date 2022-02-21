@@ -4,10 +4,11 @@ import Menu, { collapseMenu } from "./menu";
 import Footer from "./footer";
 
 interface Props {
+  page: string;
   children?: React.ReactNode;
 }
 
-export default ({ children }: Props) => {
+export default ({ page, children }: Props) => {
   return (
     <>
       <Head>
@@ -16,7 +17,7 @@ export default ({ children }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header menuOnClick={collapseMenu} />
-      <Menu />
+      <Menu page={page} />
       <main>{children}</main>
       <Footer />
     </>

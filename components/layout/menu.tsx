@@ -5,22 +5,33 @@ import {
   mdiHammerScrewdriver,
 } from "@mdi/js";
 import styles from "./menu.module.scss";
+import Link from "next/link";
 
-export default () => {
+interface Props {
+  page: string;
+}
+
+export default ({ page }: Props) => {
   return (
     <nav className={`${styles.nav} ${styles.hidden}`}>
       <ul>
-        <li className={styles.current}>
+        <li className={page === "services" ? styles.current : ""}>
           <Icon path={mdiHammerScrewdriver} />
-          <span>Serviços</span>
+          <Link href="/">
+            <a href="/">Serviços</a>
+          </Link>
         </li>
-        <li>
+        <li className={page === "budgets" ? styles.current : ""}>
           <Icon path={mdiClockOutline} />
-          <span>Orçamentos</span>
+          <Link href="/orcamentos">
+            <a>Orçamentos</a>
+          </Link>
         </li>
-        <li>
+        <li className={page === "customers" ? styles.current : ""}>
           <Icon path={mdiAccountMultipleOutline} />
-          <span>Clientes</span>
+          <Link href="/clientes">
+            <a>Clientes</a>
+          </Link>
         </li>
       </ul>
     </nav>
