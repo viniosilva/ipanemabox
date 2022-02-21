@@ -1,0 +1,36 @@
+@use "../../styles/base";
+
+nav.nav {
+  height: 100vh;
+  position: absolute;
+  background: #ffffff;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 base.$margin;
+
+    li {
+      display: flex;
+      align-items: center;
+      padding: base.$margin2 0;
+
+      svg {
+        @include base.icon;
+        margin-right: base.$margin2;
+      }
+    }
+
+    li.current {
+      color: base.$color2;
+
+      svg {
+        color: base.$color2;
+      }
+    }
+  }
+}
+
+nav.nav.hidden {
+  display: none;
+}

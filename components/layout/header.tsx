@@ -1,10 +1,17 @@
-import { MdMenu } from "react-icons/md";
-import styles from "./header.module.scss"
+import Icon from "@mdi/react";
+import { mdiMenu } from "@mdi/js";
+import styles from "./header.module.scss";
 
-export default () => {
+interface Props {
+  menuOnClick: () => void;
+}
+
+export default ({ menuOnClick }: Props) => {
   return (
     <header className={styles.header}>
-      <MdMenu className={styles.menu} />
+      <button className={styles.menu} onClick={menuOnClick}>
+        <Icon path={mdiMenu} title="Menu" />
+      </button>
       <h1>Ipanema Box</h1>
     </header>
   );

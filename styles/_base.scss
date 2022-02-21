@@ -1,3 +1,11 @@
-$primaryColor: #A8E07F;
+$color1: #7acf3b;
+$color2: #a8e07f;
 
 $margin: 22px;
+$margin2: 11px;
+
+
+@mixin icon($width: 1.5rem, $color: #333333) {
+    width: $width;
+    color: $color;
+}
