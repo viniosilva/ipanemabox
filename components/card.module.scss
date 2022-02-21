@@ -1,0 +1,8 @@
+@use "../styles/base";
+
+div.card {
+  margin: 0 base.$margin;
+  background: #ffffff;
+  border-radius: base.$borderRadius;
+  padding: base.$margin2 base.$margin;
+}

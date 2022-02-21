@@ -1,0 +1,11 @@
+@use "../styles/base";
+
+div.container {
+  display: grid;
+  grid-gap: base.$margin2;
+
+  p.phone,
+  div.address {
+    margin-top: base.$margin2;
+  }
+}
