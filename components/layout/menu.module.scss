@@ -1,10 +1,10 @@
 @use "../../styles/base";
 
 nav.nav {
-  height: 100vh;
+  top: base.$headerHeight;
+  bottom: base.$headerHeight;
   position: absolute;
   background: #ffffff;
-  overflow-y: hidden;
 
   ul {
     list-style: none;
@@ -15,7 +15,6 @@ nav.nav {
       display: flex;
       align-items: center;
       padding: base.$margin2 0;
-      cursor: pointer;
 
       svg {
         @include base.icon;
