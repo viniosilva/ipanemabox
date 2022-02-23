@@ -6,7 +6,7 @@
 }
 
 header.header {
-  background: #FFFFFF;
+  background: #ffffff;
 
   .menu {
     border: 0;
@@ -14,10 +14,11 @@ header.header {
     margin-top: base.$margin;
     margin-left: base.$margin;
     position: absolute;
-    background: #FFFFFF;
+    background: #ffffff;
 
     svg {
       @include base.icon;
+      cursor: pointer;
     }
   }
 
