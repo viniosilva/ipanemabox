@@ -1,0 +1,34 @@
+@use "../styles/base";
+
+div.container {
+  display: grid;
+  grid-gap: base.$margin2;
+
+  .card {
+    display: grid;
+    grid-gap: base.$margin2;
+    grid-template-areas:
+      "a b"
+      "c c"
+      "d d"
+      "e e";
+    justify-content: space-between;
+
+    span.schedule {
+      grid-area: a;
+    }
+    span.date {
+      grid-area: b;
+      text-align: right;
+    }
+    span.name {
+      grid-area: c;
+    }
+    span.phone {
+      grid-area: d;
+    }
+    div.address {
+      grid-area: e;
+    }
+  }
+}
