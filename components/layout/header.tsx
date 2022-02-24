@@ -10,7 +10,7 @@ interface Props {
 export default ({ menuPublisher }: Props) => {
   return (
     <header className={styles.header}>
-      <button className={styles.menu} onClick={() => menuPublisher.notify()}>
+      <button className={styles.btnMenu} onClick={() => menuPublisher.notify()}>
         <Icon path={mdiMenu} title="Menu" />
       </button>
       <h1>Ipanema Box</h1>

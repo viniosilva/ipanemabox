@@ -9,18 +9,11 @@ header.header {
   background: #ffffff;
   line-height: base.$headerHeight;
 
-  .menu {
-    border: 0;
-    padding: 0;
-    margin-top: base.$margin;
+  button.btnMenu {
+    @include base.iconButton;
+    margin-top: base.$headerHeight/2 - 30/2;
     margin-left: base.$margin;
     position: absolute;
-    background: #ffffff;
-
-    svg {
-      @include base.icon;
-      cursor: pointer;
-    }
   }
 
   h1 {
@@ -28,6 +21,6 @@ header.header {
     color: base.$color1;
     font-family: "Monte Carlo";
     font-weight: normal;
-    font-size: 40px;
+    font-size: 48px;
   }
 }

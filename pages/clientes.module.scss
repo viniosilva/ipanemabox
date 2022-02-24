@@ -1,5 +1,9 @@
 @use "../styles/base";
 
+button.btn {
+  @include base.iconButton($color: #FFFFFF);
+}
+
 div.container {
   display: grid;
   grid-gap: base.$margin2;

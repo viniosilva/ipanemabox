@@ -1,13 +1,24 @@
-$color1: #7acf3b;
-$color2: #a8e07f;
+$color1: #7ACF3B;
+$color2: #A8E07F;
 
 $margin: 22px;
 $margin2: 11px;
 
 $borderRadius: 6px;
-$headerHeight: 68px;
+$headerHeight: 82px;
 
-@mixin icon($width: 1.5rem, $color: #333333) {
-    width: $width;
-    color: $color;
+@mixin icon($width: 1.7rem, $color: #333333) {
+  width: $width;
+  color: $color;
+}
+
+@mixin iconButton($width: 1.7rem, $color: #333333) {
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+
+  svg {
+    @include icon($width: $width, $color: $color);
+  }
 }

@@ -6,9 +6,17 @@ header.header {
   background: base.$color2;
   padding: base.$margin;
   margin-bottom: -46px;
+  display: flex;
+  justify-content: space-between;
 
   h2 {
     color: #FFFFFF;
     font-weight: normal;
+  }
+
+  div.options {
+    display: flex;
+    align-items: flex-start;
+    gap: base.$margin2;
   }
 }
