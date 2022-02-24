@@ -6,12 +6,28 @@ import {
 } from "@mdi/js";
 import styles from "./menu.module.scss";
 import Link from "next/link";
+import { MenuPublisher } from ".";
+import { useEffect } from "react";
 
 interface Props {
   page: string;
+  menuPublisher: MenuPublisher;
 }
 
-export default ({ page }: Props) => {
+function expandMenu() {
+  const menu = document.getElementsByClassName(styles.nav)[0];
+  if (!menu.classList.contains(styles.hidden)) {
+    menu.classList.add(styles.hidden);
+  } else {
+    menu.classList.remove(styles.hidden);
+  }
+}
+
+export default ({ page, menuPublisher }: Props) => {
+  useEffect(() => {
+    menuPublisher.subscribe(expandMenu);
+  });
+
   return (
     <nav className={`${styles.nav} ${styles.hidden}`}>
       <ul>
@@ -37,13 +53,3 @@ export default ({ page }: Props) => {
     </nav>
   );
 };
-
-export function collapseMenu() {
-  const menu = document.getElementsByClassName(styles.nav)[0];
-
-  if (menu.classList.contains(styles.hidden)) {
-    menu.classList.remove(styles.hidden);
-  } else {
-    menu.classList.add(styles.hidden);
-  }
-}
