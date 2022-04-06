@@ -4,6 +4,18 @@ import Card from "../components/card";
 import styles from "./clientes.module.scss";
 import Icon from "@mdi/react";
 import { mdiMagnify, mdiPencil, mdiPlusCircleOutline } from "@mdi/js";
+import { BaseSyntheticEvent } from "react";
+
+function cardOnClick(e: BaseSyntheticEvent) {
+  const target: HTMLElement = e.currentTarget;
+  if (target.classList.contains(styles.selected)) return;
+
+  const selected = target.parentElement?.querySelector(
+    `div.${styles.container} .${styles.card}.${styles.selected}`
+  );
+  selected?.classList.remove(styles.selected);
+  target.classList.add(styles.selected);
+}
 
 export default () => {
   return (
@@ -20,7 +32,10 @@ export default () => {
         </button>
       </Header>
       <div className={styles.container}>
-        <Card className={styles.card}>
+        <Card
+          className={[styles.card, styles.selected].join(" ")}
+          onClick={cardOnClick}
+        >
           <span className={styles.name}>Fulano Ciclano Beltrano</span>
           <span className={styles.phone}>(11) 98370-0012</span>
           <div className={styles.address}>
@@ -29,7 +44,7 @@ export default () => {
             <p>São Paulo - SP</p>
           </div>
         </Card>
-        <Card className={styles.card}>
+        <Card className={styles.card} onClick={cardOnClick}>
           <span className={styles.name}>Fulano Ciclano Beltrano</span>
           <span className={styles.phone}>(11) 98370-0012</span>
           <div className={styles.address}>
@@ -38,7 +53,7 @@ export default () => {
             <p>São Paulo - SP</p>
           </div>
         </Card>
-        <Card className={styles.card}>
+        <Card className={styles.card} onClick={cardOnClick}>
           <span className={styles.name}>Fulano Ciclano Beltrano</span>
           <span className={styles.phone}>(11) 98370-0012</span>
           <div className={styles.address}>

@@ -1,5 +1,5 @@
-$color1: #7ACF3B;
-$color2: #A8E07F;
+$color1: #7acf3b;
+$color2: #a8e07f;
 
 $margin: 22px;
 $margin2: 11px;
@@ -21,4 +21,8 @@ $headerHeight: 82px;
   svg {
     @include icon($width: $width, $color: $color);
   }
+}
+
+@mixin boxShadow() {
+  box-shadow: 8px 8px 4px #747474;
 }

@@ -1,7 +1,7 @@
 @use "../styles/base";
 
 button.btn {
-  @include base.iconButton($color: #FFFFFF);
+  @include base.iconButton($color: #ffffff);
 }
 
 div.container {
@@ -12,5 +12,9 @@ div.container {
     display: grid;
     grid-gap: base.$margin2;
     grid-template-columns: 1fr;
+  }
+
+  .card.selected {
+    @include base.boxShadow;
   }
 }
