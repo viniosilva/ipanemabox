@@ -31,4 +31,8 @@ div.container {
       grid-area: e;
     }
   }
+
+  .card.selected {
+    @include base.boxShadow;
+  }
 }

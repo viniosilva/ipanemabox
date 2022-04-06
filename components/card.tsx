@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default ({ children, className, onClick }: Props) => {
-  const cls = [styles.card, className].join(" ");
+  const cls = `${styles.card} ${className}`;
 
   return (
     <div className={cls} onClick={onClick}>

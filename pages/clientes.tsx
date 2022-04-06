@@ -33,7 +33,7 @@ export default () => {
       </Header>
       <div className={styles.container}>
         <Card
-          className={[styles.card, styles.selected].join(" ")}
+          className={`${styles.card} ${styles.selected}`}
           onClick={cardOnClick}
         >
           <span className={styles.name}>Fulano Ciclano Beltrano</span>
