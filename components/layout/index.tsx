@@ -10,11 +10,18 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export class MenuPublisher {
+export class MenuClickEvent {
   private readonly subscribers: (() => void)[] = [];
 
   subscribe(fn: () => void): void {
     this.subscribers.push(fn);
+  }
+
+  unsubscribe(fn: () => void): void {
+    const index = this.subscribers.indexOf(fn);
+    if (index >= 0) {
+      this.subscribers.splice(index, 1);
+    }
   }
 
   notify(): void {
@@ -22,7 +29,7 @@ export class MenuPublisher {
   }
 }
 
-function expandMenu() {
+function backgroundOpaque() {
   const main = document.getElementById("main");
   if (!main?.classList.contains(style.opaque)) {
     main?.classList.add(style.opaque);
@@ -32,10 +39,14 @@ function expandMenu() {
 }
 
 export default ({ page, children }: Props) => {
-  const menuPublisher = new MenuPublisher();
+  const menuClickEvent = new MenuClickEvent();
 
   useEffect(() => {
-    menuPublisher.subscribe(expandMenu);
+    menuClickEvent.subscribe(backgroundOpaque);
+
+    return () => {
+      menuClickEvent.unsubscribe(backgroundOpaque);
+    }
   });
 
   return (
@@ -45,8 +56,8 @@ export default ({ page, children }: Props) => {
         <meta name="description" content="Ipanema Box" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header menuPublisher={menuPublisher} />
-      <Menu page={page} menuPublisher={menuPublisher} />
+      <Header menuClickEvent={menuClickEvent} />
+      <Menu page={page} menuClickEvent={menuClickEvent} />
       <main id="main">{children}</main>
       <Footer />
     </>
