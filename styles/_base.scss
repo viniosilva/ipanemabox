@@ -1,18 +1,22 @@
-$color1: #7acf3b;
-$color2: #a8e07f;
+$lightColor: #ffffff;
+$darkColor1: #333333;
+$themeColor1: #7acf3b;
+$themeColor2: #a8e07f;
 
 $margin: 22px;
 $margin2: 11px;
+$margin3: 6px;
+$margin4: 3px;
 
 $borderRadius: 6px;
 $headerHeight: 82px;
 
-@mixin icon($width: 1.7rem, $color: #333333) {
+@mixin icon($width: 1.7rem, $color: $darkColor1) {
   width: $width;
   color: $color;
 }
 
-@mixin iconButton($width: 1.7rem, $color: #333333) {
+@mixin iconButton($width: 1.7rem, $color: $darkColor1) {
   border: 0;
   padding: 0;
   background: none;

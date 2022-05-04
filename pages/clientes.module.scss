@@ -1,7 +1,7 @@
 @use "../styles/base";
 
 button.btn {
-  @include base.iconButton($color: #ffffff);
+  @include base.iconButton($color: base.$lightColor);
 }
 
 div.container {
@@ -17,4 +17,20 @@ div.container {
   .card.selected {
     @include base.boxShadow;
   }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+}
+
+header {
+  button.closeForm {
+    svg {
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.hidden {
+  display: none !important;
 }

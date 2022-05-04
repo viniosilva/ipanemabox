@@ -4,7 +4,7 @@ nav.nav {
   top: base.$headerHeight;
   bottom: base.$headerHeight;
   position: absolute;
-  background: #FFFFFF;
+  background: base.$lightColor;
   opacity: 1;
   z-index: 1;
 
@@ -25,10 +25,10 @@ nav.nav {
     }
 
     li.current {
-      color: base.$color2;
+      color: base.$themeColor2;
 
       svg {
-        color: base.$color2;
+        color: base.$themeColor2;
       }
     }
   }

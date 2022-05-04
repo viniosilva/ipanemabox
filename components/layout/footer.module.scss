@@ -1,7 +1,7 @@
 @use '../../styles/base';
 
 footer.footer {
-  background: base.$color2;
+  background: base.$themeColor2;
   bottom: 0;
   position: fixed;
   width: 100vw;
@@ -9,6 +9,6 @@ footer.footer {
   text-align: center;
   
   span {
-    color: #FFFFFF;
+    color: base.$lightColor;
   }
 }

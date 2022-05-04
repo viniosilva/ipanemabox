@@ -6,7 +6,7 @@
 }
 
 header.header {
-  background: #ffffff;
+  background: base.$lightColor;
   line-height: base.$headerHeight;
 
   button.btnMenu {
@@ -18,7 +18,7 @@ header.header {
 
   h1 {
     text-align: center;
-    color: base.$color1;
+    color: base.$themeColor1;
     font-family: "Monte Carlo";
     font-weight: normal;
     font-size: 48px;

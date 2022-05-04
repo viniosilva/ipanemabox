@@ -3,14 +3,14 @@
 header.header {
   width: 100vw;
   height: 136px;
-  background: base.$color2;
+  background: base.$themeColor2;
   padding: base.$margin;
   margin-bottom: -46px;
   display: flex;
   justify-content: space-between;
 
   h2 {
-    color: #FFFFFF;
+    color: base.$lightColor;
     font-weight: normal;
   }
 
