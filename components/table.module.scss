@@ -1,0 +1,45 @@
+@use "../styles/base";
+
+div.container {
+  @include base.boxShadow;
+
+  background: base.$lightColor;
+  margin: 0 base.$margin;
+  border-radius: base.$borderRadius;
+  overflow-x: auto;
+
+  table {
+    width: 100vw;
+    color: base.$darkColor;
+    border-collapse: collapse;
+    overflow: hidden;
+
+    thead {
+      tr {
+        background: base.$darkColor;
+        color: base.$lightColor;
+        text-align: left;
+      }
+
+      th {
+        padding: base.$margin2;
+      }
+    }
+
+    tbody {
+      border-bottom: 2px solid base.$darkColor;
+
+      td {
+        padding: base.$margin2;
+      }
+
+      tr {
+        cursor: pointer;
+      }
+
+      tr:nth-of-type(odd) {
+        background: base.$neutralColor;
+      }
+    }
+  }
+}

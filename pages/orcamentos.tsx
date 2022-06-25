@@ -2,7 +2,11 @@ import Layout from "../components/layout";
 import Header from "../components/header";
 import styles from "./orcamentos.module.scss";
 import Card from "../components/card";
-import { BaseSyntheticEvent } from "react";
+import { BaseSyntheticEvent, useState } from "react";
+import { getBudgets } from "./api/budgets/get-budgets";
+import Budget from "../models/budget";
+import { mdiMagnify, mdiPencil, mdiPlusCircleOutline } from "@mdi/js";
+import Icon from "@mdi/react";
 
 function cardOnClick(e: BaseSyntheticEvent) {
   const target: HTMLElement = e.currentTarget;
@@ -16,46 +20,57 @@ function cardOnClick(e: BaseSyntheticEvent) {
 }
 
 export default () => {
+  const [budgets] = useState(getBudgets());
+  const [budget, setBudget] = useState(budgets[0]);
+  const [formData, setFormData] = useState({} as Budget);
+
   return (
     <Layout page="budgets">
-      <Header title="Orçamentos"></Header>
-      <div className={styles.container}>
-        <Card
-          className={`${styles.card} ${styles.selected}`}
-          onClick={cardOnClick}
+      <Header title="Orçamentos">
+        <button className={styles.btn} onClick={() => alert(1)}>
+          <Icon path={mdiMagnify} title="Buscar orçamento" />
+        </button>
+        <button
+          className={styles.btn}
+          // onClick={(e) => showForm(e, setFormData, budget)}
         >
-          <span className={styles.schedule}>10:35</span>
-          <span className={styles.date}>30/01/2022</span>
-          <span className={styles.name}>Fulano Ciclano Beltrano</span>
-          <span className={styles.phone}>(11) 98370-0012</span>
-          <div className={styles.address}>
-            <p>R. Sd. Teodoro Francisco Ribeiro, 6090</p>
-            <p>Torre 7 Apto. 143. Pq. Novo Mundo</p>
-            <p>São Paulo - SP</p>
-          </div>
-        </Card>
-        <Card className={styles.card} onClick={cardOnClick}>
-          <span className={styles.schedule}>16:30</span>
-          <span className={styles.date}>31/01/2022</span>
-          <span className={styles.name}>Fulano Ciclano Beltrano</span>
-          <span className={styles.phone}>(11) 98370-0012</span>
-          <div className={styles.address}>
-            <p>R. Sd. Teodoro Francisco Ribeiro, 6090</p>
-            <p>Torre 7 Apto. 143. Pq. Novo Mundo</p>
-            <p>São Paulo - SP</p>
-          </div>
-        </Card>
-        <Card className={styles.card} onClick={cardOnClick}>
-          <span className={styles.schedule}>09:00</span>
-          <span className={styles.date}>01/02/2022</span>
-          <span className={styles.name}>Fulano Ciclano Beltrano</span>
-          <span className={styles.phone}>(11) 98370-0012</span>
-          <div className={styles.address}>
-            <p>R. Sd. Teodoro Francisco Ribeiro, 6090</p>
-            <p>Torre 7 Apto. 143. Pq. Novo Mundo</p>
-            <p>São Paulo - SP</p>
-          </div>
-        </Card>
+          <Icon path={mdiPencil} title="Editar orçamento" />
+        </button>
+        <button
+          className={styles.btn}
+          // onClick={(e) => showForm(e, setFormData)}
+        >
+          <Icon path={mdiPlusCircleOutline} title="Adicionar orçamento" />
+        </button>
+        <button
+          className={`${styles.btn} ${styles.closeForm} ${styles.hidden}`}
+          // onClick={(e) => showForm(e, setFormData)}
+        >
+          <Icon path={mdiPlusCircleOutline} title="Fechar formulário" />
+        </button>
+      </Header>
+      <div className={styles.container}>
+        {budgets.map((b, i) => {
+          const cls = i > 0 ? styles.card : `${styles.card} ${styles.selected}`;
+          return (
+            <Card
+              key={`card_${b.id}`}
+              id={`card_${b.id}`}
+              className={cls}
+              onClick={cardOnClick}
+            >
+              <span className={styles.schedule}>{b.schedule}</span>
+              <span className={styles.date}>{b.date}</span>
+              <span className={styles.name}>{b.customer.name}</span>
+              <span className={styles.phone}>{b.customer.phone}</span>
+              <div className={styles.address}>
+                {b.customer?.address?.split("\n").map((line: string) => (
+                  <p>{line}</p>
+                ))}
+              </div>
+            </Card>
+          );
+        })}
       </div>
     </Layout>
   );

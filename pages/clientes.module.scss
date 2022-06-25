@@ -1,36 +1,14 @@
 @use "../styles/base";
 
-button.btn {
-  @include base.iconButton($color: base.$lightColor);
-}
-
 div.container {
   display: grid;
   grid-gap: base.$margin2;
 
-  .card {
-    display: grid;
-    grid-gap: base.$margin2;
-    grid-template-columns: 1fr;
+  .nowrap {
+    white-space: nowrap;
   }
 
-  .card.selected {
-    @include base.boxShadow;
+  .selected {
+    font-weight: bold;
   }
-
-  .form {
-    grid-template-columns: 1fr;
-  }
-}
-
-header {
-  button.closeForm {
-    svg {
-      transform: rotate(45deg);
-    }
-  }
-}
-
-.hidden {
-  display: none !important;
 }

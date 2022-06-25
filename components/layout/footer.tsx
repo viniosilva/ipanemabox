@@ -1,9 +1,12 @@
+import { useState } from "react";
 import styles from "./footer.module.scss";
 
 export default () => {
+  const [year] = useState((new Date()).getFullYear())
+
   return (
     <footer className={styles.footer}>
-      <span>2022 © Ipanema Box</span>
+      <span>{`${year}`} © Ipanema Box</span>
     </footer>
   );
 };

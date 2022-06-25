@@ -18,5 +18,9 @@ header.header {
     display: flex;
     align-items: flex-start;
     gap: base.$margin2;
+
+    button {
+      @include base.iconButton($color: base.$lightColor);
+    }
   }
 }

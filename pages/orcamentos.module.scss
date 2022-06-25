@@ -36,3 +36,19 @@ div.container {
     @include base.boxShadow;
   }
 }
+
+header {
+  button.btn {
+    @include base.iconButton($color: base.$lightColor);
+  }
+
+  button.closeForm {
+    svg {
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.hidden {
+  display: none !important;
+}

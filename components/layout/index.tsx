@@ -2,7 +2,7 @@ import Head from "next/head";
 import Header from "./header";
 import Menu from "./menu";
 import Footer from "./footer";
-import style from "./main.module.scss";
+import styles from "./main.module.scss";
 import { useEffect } from "react";
 
 interface Props {
@@ -31,10 +31,10 @@ export class MenuClickEvent {
 
 function backgroundOpaque() {
   const main = document.getElementById("main");
-  if (!main?.classList.contains(style.opaque)) {
-    main?.classList.add(style.opaque);
+  if (!main?.classList.contains(styles.opaque)) {
+    main?.classList.add(styles.opaque);
   } else {
-    main?.classList.remove(style.opaque);
+    main?.classList.remove(styles.opaque);
   }
 }
 
@@ -46,7 +46,7 @@ export default ({ page, children }: Props) => {
 
     return () => {
       menuClickEvent.unsubscribe(backgroundOpaque);
-    }
+    };
   });
 
   return (
@@ -56,10 +56,12 @@ export default ({ page, children }: Props) => {
         <meta name="description" content="Ipanema Box" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header menuClickEvent={menuClickEvent} />
-      <Menu page={page} menuClickEvent={menuClickEvent} />
-      <main id="main">{children}</main>
-      <Footer />
+      <div className={styles.body}>
+        <Header menuClickEvent={menuClickEvent} />
+        <Menu page={page} menuClickEvent={menuClickEvent} />
+        <main id="main">{children}</main>
+        <Footer />
+      </div>
     </>
   );
 };

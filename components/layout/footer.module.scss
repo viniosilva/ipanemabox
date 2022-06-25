@@ -1,13 +1,13 @@
-@use '../../styles/base';
+@use "../../styles/base";
 
 footer.footer {
   background: base.$themeColor2;
-  bottom: 0;
-  position: fixed;
+  margin-top: base.$margin;
+
   width: 100vw;
   line-height: base.$headerHeight;
   text-align: center;
-  
+
   span {
     color: base.$lightColor;
   }
