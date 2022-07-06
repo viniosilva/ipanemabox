@@ -6,12 +6,12 @@ import {
 } from "@mdi/js";
 import styles from "./menu.module.scss";
 import Link from "next/link";
-import { MenuClickEvent } from ".";
 import { useEffect } from "react";
+import { EventManager } from "../../utils/event-manager";
 
 interface Props {
   page: string;
-  menuClickEvent: MenuClickEvent;
+  menuEvent: EventManager;
 }
 
 function expandMenu() {
@@ -23,13 +23,10 @@ function expandMenu() {
   }
 }
 
-export default ({ page, menuClickEvent }: Props) => {
+export default ({ page, menuEvent }: Props) => {
   useEffect(() => {
-    menuClickEvent.subscribe(expandMenu);
-
-    return () => {
-      menuClickEvent.unsubscribe(expandMenu);
-    };
+    menuEvent.subscribe(expandMenu);
+    return () => menuEvent.unsubscribe(expandMenu);
   });
 
   return (

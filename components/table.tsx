@@ -1,4 +1,3 @@
-import { BaseSyntheticEvent } from "react";
 import styles from "./table.module.scss";
 
 interface Props {

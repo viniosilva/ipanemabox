@@ -1,0 +1,31 @@
+@use "../styles/base";
+
+div.background {
+  position: fixed;
+  width: 100vw;
+  top: (base.$margin)*6;
+  z-index: 1;
+
+  div.container {
+    @include base.boxShadow;
+
+    background: base.$lightColor;
+    margin:0  base.$margin;
+    padding: base.$margin4;
+    border-radius: base.$borderRadius;
+
+    button {
+      @include base.iconButton($color: base.$darkColor);
+      transform: rotate(45deg);
+      float: right;
+    }
+
+    div.contants {
+      margin: base.$margin;
+    }
+  }
+
+  div.hidden {
+    display: none;
+  }
+}

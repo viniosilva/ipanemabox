@@ -1,16 +1,19 @@
 import Icon from "@mdi/react";
 import { mdiMenu } from "@mdi/js";
 import styles from "./header.module.scss";
-import { MenuClickEvent } from ".";
+import { EventManager } from "../../utils/event-manager";
 
 interface Props {
-  menuClickEvent: MenuClickEvent;
+  menuEvent: EventManager;
 }
 
-export default ({ menuClickEvent }: Props) => {
+export default ({ menuEvent }: Props) => {
   return (
     <header className={styles.header}>
-      <button className={styles.btnMenu} onClick={() => menuClickEvent.notify()}>
+      <button
+        className={styles.btnMenu}
+        onClick={() => menuEvent.notify()}
+      >
         <Icon path={mdiMenu} title="Menu" />
       </button>
       <h1>Ipanema Box</h1>

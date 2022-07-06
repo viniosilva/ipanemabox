@@ -4,29 +4,12 @@ import Menu from "./menu";
 import Footer from "./footer";
 import styles from "./main.module.scss";
 import { useEffect } from "react";
+import { EventManager } from "../../utils/event-manager";
 
 interface Props {
   page: string;
+  customerModalEvent?: EventManager;
   children?: React.ReactNode;
-}
-
-export class MenuClickEvent {
-  private readonly subscribers: (() => void)[] = [];
-
-  subscribe(fn: () => void): void {
-    this.subscribers.push(fn);
-  }
-
-  unsubscribe(fn: () => void): void {
-    const index = this.subscribers.indexOf(fn);
-    if (index >= 0) {
-      this.subscribers.splice(index, 1);
-    }
-  }
-
-  notify(): void {
-    this.subscribers.forEach((s) => s());
-  }
 }
 
 function backgroundOpaque() {
@@ -38,14 +21,16 @@ function backgroundOpaque() {
   }
 }
 
-export default ({ page, children }: Props) => {
-  const menuClickEvent = new MenuClickEvent();
+export default ({ page, customerModalEvent, children }: Props) => {
+  const menuEvent = new EventManager();
 
   useEffect(() => {
-    menuClickEvent.subscribe(backgroundOpaque);
+    menuEvent.subscribe(backgroundOpaque);
+    customerModalEvent?.subscribe(backgroundOpaque);
 
     return () => {
-      menuClickEvent.unsubscribe(backgroundOpaque);
+      menuEvent?.unsubscribe(backgroundOpaque);
+      customerModalEvent?.unsubscribe(backgroundOpaque);
     };
   });
 
@@ -57,8 +42,8 @@ export default ({ page, children }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.body}>
-        <Header menuClickEvent={menuClickEvent} />
-        <Menu page={page} menuClickEvent={menuClickEvent} />
+        <Header menuEvent={menuEvent} />
+        <Menu page={page} menuEvent={menuEvent} />
         <main id="main">{children}</main>
         <Footer />
       </div>
