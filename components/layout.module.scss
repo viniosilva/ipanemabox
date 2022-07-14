@@ -1,0 +1,86 @@
+@use "../styles/base";
+
+div.body {
+  background: base.$neutralColor;
+  min-height: 100vh; 
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow-x: hidden;
+
+  header.header {
+    background: base.$lightColor;
+    line-height: base.$headerHeight;
+  
+    button.btnMenu {
+      @include base.iconButton;
+      margin-top: base.$headerHeight/2 - 30/2;
+      margin-left: base.$margin;
+      position: absolute;
+    }
+  
+    h1 {
+      text-align: center;
+      color: base.$themeColor1;
+      font-family: "Monte Carlo";
+      font-weight: normal;
+      font-size: 48px;
+    }
+  }
+
+  nav.nav {
+    top: base.$headerHeight;
+    bottom: base.$headerHeight;
+    position: absolute;
+    background: base.$lightColor;
+    opacity: 1;
+    z-index: 1;
+  
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 base.$margin;
+  
+      li {
+        display: flex;
+        align-items: center;
+        padding: base.$margin2 0;
+  
+        svg {
+          @include base.icon;
+          margin-right: base.$margin2;
+        }
+      }
+  
+      li.current {
+        color: base.$themeColor2;
+  
+        svg {
+          color: base.$themeColor2;
+        }
+      }
+    }
+  }
+  
+  nav.nav.hidden {
+    display: none;
+  }
+
+  footer.footer {
+    background: base.$themeColor2;
+    margin-top: base.$margin;
+  
+    width: 100vw;
+    line-height: base.$headerHeight;
+    text-align: center;
+  
+    span {
+      color: base.$lightColor;
+    }
+  }
+  
+}
+
+main.opaque {
+  opacity: 0.1;
+}
+
