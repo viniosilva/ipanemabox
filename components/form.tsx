@@ -8,11 +8,9 @@ interface Props {
   onSubmit?: (e: BaseSyntheticEvent) => void;
 }
 
-export default ({ children, id, className, onSubmit }: Props) => {
-  const cls = `${styles.form} ${className}`;
-
+export default ({ children, onSubmit }: Props) => {
   return (
-    <form id={id} className={cls} onSubmit={onSubmit}>
+    <form className={styles.form} onSubmit={onSubmit}>
       {children}
     </form>
   );

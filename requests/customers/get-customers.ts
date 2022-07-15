@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import Customer from "../../../models/customer";
+import Customer from "../../models/customer";
 
 export default function handler(
   req: NextApiRequest,

@@ -11,11 +11,8 @@
 }
 
 form.form {
-  margin: 0 base.$margin;
   background: base.$lightColor;
   border-radius: base.$borderRadius;
-  padding: base.$margin2 base.$margin;
-
   display: grid;
   grid-gap: base.$margin2;
   grid-template-columns: 1fr 1fr;
@@ -35,18 +32,10 @@ form.form {
     }
   }
 
-  button[type="submit"] {
+  input[type="submit"] {
     @include field();
-    background: base.$lightColor;
-    padding: 6px 12px;
-    width: 92px;
-  }
-
-  button[type="button"] {
-    @include field();
-    background: base.$lightColor;
-    padding: 6px 12px;
-    width: 92px;
-    justify-self: end;
+    background: #4CAF50;
+    color: base.$lightColor;
+    max-width: 100px;
   }
 }

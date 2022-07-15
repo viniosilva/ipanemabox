@@ -3,7 +3,7 @@ import Header from "../components/header";
 import styles from "./orcamentos.module.scss";
 import Card from "../components/card";
 import { BaseSyntheticEvent, useState } from "react";
-import { getBudgets } from "./api/budgets/get-budgets";
+import { getBudgets } from "../requests/budgets/get-budgets";
 import Budget from "../models/budget";
 import { mdiMagnify, mdiPencil, mdiPlusCircleOutline } from "@mdi/js";
 import Icon from "@mdi/react";
